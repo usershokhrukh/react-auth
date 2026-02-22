@@ -1,0 +1,47 @@
+.users {
+  @include display();
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  gap: 10px;
+  align-items: start;
+  padding: 10px;
+  border: 1px solid black;
+
+  &__top {
+    @include display();
+    align-items: start;
+    justify-content: start;
+    width: 100%;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  &__img {
+    background-color: rgb(238, 237, 237);
+    border-radius: 10000px;
+    padding: 20px;
+  }
+
+  &__username {
+    font-weight: 600;
+    // text-align: center;
+  }
+
+  &__gender {
+    font-weight: 600;
+  }
+
+  &__right {
+    @include display();
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  &__firstName,
+  &__secondName {
+    padding: 3px;
+    background-color: rgb(231, 231, 231);
+  }
+}
