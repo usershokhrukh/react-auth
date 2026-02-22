@@ -12,15 +12,15 @@ const TopSearch = () => {
     setRouteId("");
     setText(true);
   };
-    setTimeout(() => {
-      const docFound = document.querySelector(".found-users");
-      setFound(docFound);
-      if (!found) {
-        setText(false);
-      } else {
-        setText(true);
-      }
-    }, 1000);
+  setTimeout(() => {
+    const docFound = document.querySelector(".found-users");
+    setFound(docFound);
+    if (!found) {
+      setText(false);
+    } else {
+      setText(true);
+    }
+  }, 1000);
 
   const handleRoute = () => {
     navigate("/");

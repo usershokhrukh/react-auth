@@ -6,19 +6,18 @@ const UserRequest = (data) => {
   if (localStorage.getItem("usersDummy")) {
     const userObj = JSON.parse(localStorage.getItem("usersDummy"));
     let same = false;
-    userObj.map(item => {
-      if(item.accessToken == data?.data?.accessToken){
+    userObj.map((item) => {
+      if (item.accessToken == data?.data?.accessToken) {
         same = true;
         return;
       }
-    })
-    if(!same){
-      userObj.push(data?.data)
-    }    
-    localStorage.setItem("usersDummy", JSON.stringify(userObj))
-    
+    });
+    if (!same) {
+      userObj.push(data?.data);
+    }
+    localStorage.setItem("usersDummy", JSON.stringify(userObj));
   } else {
-    if(data?.data.image) {
+    if (data?.data.image) {
       const users = [];
       users.push(data?.data);
       localStorage.setItem("usersDummy", JSON.stringify(users));

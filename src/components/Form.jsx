@@ -104,19 +104,21 @@ const Form = () => {
       setEye(!eye);
     };
     const handleID = () => {
-      if(routeId) navigate(`/users/${routeId}`)
-    }
+      if (routeId) navigate(`/users/${routeId}`);
+    };
 
     return (
       <div className="main">
         <div className="main__form-i-top">
           <input
-            onChange={e => setRouteId(e.target.value.trim())}
+            onChange={(e) => setRouteId(e.target.value.trim())}
             className="main__form-i main__form-top-input"
             placeholder="Search auth users in a route"
             type="search"
           />
-          <button onClick={handleID} className="main__form-top-button">Search</button>
+          <button onClick={handleID} className="main__form-top-button">
+            Search
+          </button>
         </div>
 
         <form onSubmit={onSubmit} className="main__form">
