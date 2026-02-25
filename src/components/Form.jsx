@@ -12,7 +12,7 @@ const Form = () => {
   try {
     const [eye, setEye] = useState(true);
     const [username, setUsername] = useState("emilys");
-    const [password, setPassword] = useState("wmilyspass");
+    const [password, setPassword] = useState("emilyspass");
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState({});
     const navigate = useNavigate();
