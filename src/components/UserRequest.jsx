@@ -2,7 +2,8 @@ import React from "react";
 import {Logger} from "sass";
 
 const UserRequest = (data) => {
-  const {email, firstName, lastName, username, gender, image} = data?.data;
+  const {email, firstName, lastName, username, gender, image, id} = data?.data;  
+  localStorage.setItem("idDummy", id);
   if (localStorage.getItem("usersDummy")) {
     const userObj = JSON.parse(localStorage.getItem("usersDummy"));
     let same = false;

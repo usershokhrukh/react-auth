@@ -1,0 +1,30 @@
+.dashboard {
+  @include display();
+  flex-direction: column;
+  padding: 2%;
+  align-items: start;
+  gap: 100px;
+  &__list {
+    @include display();
+    width: 100%;
+    gap: 20px;
+  }
+
+  &__link {
+    padding: 4px;
+    text-decoration: none;
+    color: black;
+    border: 1px solid ;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  &__bottom {
+    @include display();
+    flex-direction: column;
+    width: 100%;
+    align-items: start;
+    gap: 10px;
+  }
+}
