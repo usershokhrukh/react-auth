@@ -11,8 +11,8 @@ const Form = () => {
   }
   try {
     const [eye, setEye] = useState(true);
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+    const [username, setUsername] = useState("emilys");
+    const [password, setPassword] = useState("wmilyspass");
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState({});
     const navigate = useNavigate();
@@ -28,7 +28,7 @@ const Form = () => {
         });
     };
 
-    const getResponse = (response, status) => {
+    const getResponse = (response, status) => {      
       setTimeout(() => {
         setLoading(false);
       }, 100);
@@ -38,7 +38,21 @@ const Form = () => {
         toast.success("success!", {
           autoClose: 700,
         });
-        setData(response);
+        const safeResponse = {
+          image: response?.image,
+          username: response?.username,
+          lastName: response?.lastName,
+          id: response?.id,
+          gender: response?.gender,
+          firstName: response?.firstName,
+          email: response?.email,
+          accessToken: response?.accessToken,
+        }    
+        localStorage.setItem("tokenDummy", safeResponse?.accessToken);    
+        setData(safeResponse);
+        setTimeout(() => {
+          navigate("/dashboard");
+        }, 1000);
       }
     };
 
