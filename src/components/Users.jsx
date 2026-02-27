@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import RenderTodos from "./RenderTodos";
 import Table from "./Table";
-const ToDos = () => {
+const Users = () => {
   async function getRequest(url) {
     const request = await axios.get(url);
     return request;
@@ -13,15 +12,15 @@ const ToDos = () => {
     function getResponse(url) {
       const responseData = getRequest(url)
         .then((response) => {
-          renderTodos(response?.data?.todos);
+          renderUsers(response?.data?.users);
         })
         .catch((error) => {
           throw new Error(error);
         });
     }
 
-    function renderTodos(response) {
-      localStorage.setItem("todosDummy", JSON.stringify(response));
+    function renderUsers(response) {
+      localStorage.setItem("usersProfileDummy", JSON.stringify(response));
       setTimeout(() => {
         setData(response);
         setLoading(false);
@@ -29,21 +28,21 @@ const ToDos = () => {
     }
 
     useEffect(() => {
-      if (localStorage.getItem("todosDummy")) {
-        const todos = JSON.parse(localStorage.getItem("todosDummy"));
-        renderTodos(todos);
+      if (localStorage.getItem("usersProfileDummy")) {
+        const users = JSON.parse(localStorage.getItem("usersProfileDummy"));
+        renderUsers(users);
       } else {
-        const api = "https://dummyjson.com/todos";
+        const api = "https://dummyjson.com/users";
         getResponse(api);
       }
     }, []);
 
     return (
       <div className="todos__main">
-        <h2>Todos:</h2>
+        <h2>Users:</h2>
         <div className="todos__wr">
         {loading ? "Loading..." : ""}
-          <Table todos={data} />
+          <Table users={data} />
         </div>
       </div>
     );
@@ -52,4 +51,4 @@ const ToDos = () => {
   }
 };
 
-export default ToDos;
+export default Users;

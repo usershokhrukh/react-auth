@@ -1,0 +1,79 @@
+.table {
+  width: 100%;
+  padding: 10px;
+  max-width: 1300px;
+  &__main {
+    gap: 20px;
+    // background-color: red;
+    width: 100%;
+    border-collapse:collapse;
+  }
+
+  &__data {
+    padding: 5px;
+    word-break: break-all;
+    border: 1px solid black;
+    background-color: rgba(128, 128, 128, 0.171);
+  }
+  &__head {
+    font-weight: 600;
+  }
+  &__row {
+    visibility: hidden;
+  }
+
+  &__svg {
+    width: 20px;
+    color: white
+  }
+
+  &__corr {
+    background-color: rgb(14, 187, 14);
+  }
+
+  &__no {
+    background-color: red;
+    // width: 15px;
+    padding: 3px;
+  }
+
+  &__animate {
+    animation-name: table;
+    animation-delay: 300ms;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    // animation-iteration-count: infinite;
+  }
+
+  &__acts {
+    height: 100%;
+    margin-right: 5px;
+    padding: 4px 3px 2px 4px;
+    border: none;
+    background-color: rgb(13, 50, 119);
+    border-radius: 50px;
+    &:hover {
+      opacity: 0.7;
+      background-color: gray;
+    }
+  }
+
+  &__acts-svg {
+    width: 17px;
+    height: 15px;
+    color: white;
+  }
+
+}
+
+  @keyframes table {
+    0%{
+      transform: translateY(10px);
+    }50%{
+      transform: translateY(-10px);
+    }100%{
+      transform: translateY(0px);
+      background-color: rgba(128, 128, 128, 0.171);
+      visibility: visible;
+    }
+  }

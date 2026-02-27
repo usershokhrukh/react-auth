@@ -10,11 +10,15 @@ const Form = () => {
     return request;
   }
   try {
+    // localStorage.removeItem("idDummy");
+    // localStorage.removeItem("todosDummy");
+    // localStorage.removeItem("tokenDummy");
+    // localStorage.removeItem("usersDummy");
     const [eye, setEye] = useState(true);
     const [username, setUsername] = useState("emilys");
     const [password, setPassword] = useState("emilyspass");
     const [loading, setLoading] = useState(false);
-    const [data, setData] = useState({});
+    const [data, setData] = useState({id: -1});
     const navigate = useNavigate();
     const [routeId, setRouteId] = useState("");
     let {id} = useParams();
@@ -28,7 +32,7 @@ const Form = () => {
         });
     };
 
-    const getResponse = (response, status) => {      
+    const getResponse = (response, status) => {
       setTimeout(() => {
         setLoading(false);
       }, 100);
@@ -47,8 +51,8 @@ const Form = () => {
           firstName: response?.firstName,
           email: response?.email,
           accessToken: response?.accessToken,
-        }    
-        localStorage.setItem("tokenDummy", safeResponse?.accessToken);    
+        };
+        localStorage.setItem("tokenDummy", safeResponse?.accessToken);
         setData(safeResponse);
         setTimeout(() => {
           navigate("/dashboard");
