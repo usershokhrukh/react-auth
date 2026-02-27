@@ -5,6 +5,7 @@ import TopSearch from "../components/TopSearch";
 import Dashboard from "../components/Dashboard";
 import Image from "../components/Image";
 import ToDos from "../components/ToDos";
+import Users from "../components/Users";
 const Router = () => {
   const [token, setToken] = useState(localStorage.getItem("tokenDummy"));
   const [id, setId] = useState(localStorage.getItem("idDummy"));
@@ -13,6 +14,7 @@ const Router = () => {
     setId(localStorage.getItem("idDummy"));
     const userId = 0;
     const users = JSON.parse(localStorage.getItem("usersDummy"));
+
     let access = false;
     users?.map((item) => {
       if (item?.id == id) {
@@ -22,7 +24,8 @@ const Router = () => {
         }
       }
     });
-    if (access) {
+
+    if (users || access) {
       navigate("/dashboard");
     } else {
       navigate("/");
@@ -42,6 +45,7 @@ const Router = () => {
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="/dashboard/image" element={<Image />} />
           <Route path="/dashboard/todos" element={<ToDos />} />
+          <Route path="/dashboard/users" element={<Users/>} />
         </Route>
       </Routes>
     </div>

@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {data, NavLink, Outlet} from "react-router-dom";
 import UserRequest from "./UserRequest";
 import RenderUsers from "./RenderUsers";
+import Table from "./Table";
 const Dashboard = () => {
   const id = localStorage.getItem("idDummy");
   return (
@@ -11,10 +12,17 @@ const Dashboard = () => {
             <NavLink
               className={"dashboard__link"}
               to={"/dashboard/todos"}
-              content="salom"
             >
           <li className="dashboard__li">
               ToDos
+          </li>
+            </NavLink>
+            <NavLink
+              className={"dashboard__link"}
+              to={"/dashboard/users"}
+            >
+          <li className="dashboard__li">
+              Users
           </li>
             </NavLink>
             <NavLink className={"dashboard__link"} to={"/dashboard/image"}>
@@ -38,7 +46,7 @@ const Dashboard = () => {
           </li>
         </ul>
       </div>
-      <main>
+      <main className="dashboard__main">
         <div className="dashboard__bottom">
           <h1>Entered as:</h1>
           <RenderUsers id={id} />
